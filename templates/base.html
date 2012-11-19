@@ -62,39 +62,44 @@
 				</div>
 				
 			
-				<div class="nav-collapse collapse navigation-top pull-right">
+			<div class="nav-collapse collapse navigation-top pull-right">
 				  <div class="row">
+				    <div id="navigation">
+						<div class="navIEPadder">
+						{% include 'tags/navigation.html' %}
+						</div>
+					</div>
 					{% block shop_cart%}
 					{% endblock %}
 					<form class="navbar-search pull-right" style="margin-top:-30px">
-				<input type="text" class="search-query" placeholder="search">
-			</form>
-				  </div
+						<input type="text" class="search-query" placeholder="search">
+					</form>
+				  </div>
 				  
 				  <div class="row">	
 					<ul class="nav">
 						<li class="index">
-							<a href="index.html">Home</a>
+							<a href="/index.html">Home</a>
 						</li>
 						<li class="services">
-							<a href="services.html">Services</a>
+							<a href="/services.html">Services</a>
 						</li>
 						<li class="shop_online">
-							<a href="shop_online.html">Shop-Online</a>
+							<a href="/shop_online.html">Shop-Online</a>
 						</li>
 						<li class="about">
-							<a href="about.html">About</a>
+							<a href="/about.html">About</a>
 						</li>
 						<li class="contact">
-							<a href="contact.html">Contact</a>
+							<a href="/contact.html">Contact</a>
 						</li>
 					</ul>
-					</div>
-				</div>	
+				   </div>
+			</div>	
 			</div>
 		</div>
-	
-<body>
+	</div>
+
     {% block site_wrapper %}{% endblock %}
 <!-- Footer -->
 		

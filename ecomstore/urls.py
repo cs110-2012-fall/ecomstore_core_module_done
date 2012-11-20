@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-
+import settings
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -24,4 +24,6 @@ urlpatterns = patterns('',
      (r'^accounts/',include('ecomstore.accounts.urls')),
      (r'^accounts/',include('django.contrib.auth.urls')),
      (r'^checkout/', include('ecomstore.checkout.urls')),
+     (r'^search/', include('search.urls')),
+     (r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT}),
 )

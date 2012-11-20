@@ -49,12 +49,12 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/home/thomas/Downloads/ecomstore-master/templates/images_from_user'
+MEDIA_ROOT = '/home/thomas/Downloads/ecomstore-master/templates/user_images'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = '/meida/'
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -72,6 +72,13 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 	"/home/thomas/Downloads/ecomstore-master/templates",
+)
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+  '/home/thomas/Downloads/ecomstore-master/templates',
 )
 
 # List of finder classes that know how to find static files in
@@ -111,12 +118,7 @@ LOGIN_REDIRECT_URL = '/accounts/my_account/'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'ecomstore.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-  '/home/thomas/Downloads/ecomstore-master/templates',
-)
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -134,6 +136,7 @@ INSTALLED_APPS = (
      'ecomstore.cart',
      'ecomstore.accounts',
      'ecomstore.checkout',
+     'ecomstore.search',
      
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
@@ -189,3 +192,6 @@ AUTHNET_POST_PATH = '/gateway/transact.dll'
 AUTHNET_LOGIN = '8gXZ497Qxd'
 AUTHNET_KEY = '238TVfjA4E6Eh3tg'
 AUTH_PROFILE_MODULE = 'accounts.userprofile'
+
+PRODUCTS_PER_PAGE = 12
+

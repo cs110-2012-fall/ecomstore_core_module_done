@@ -1,5 +1,10 @@
 from django.db import models
 import datetime
+
+class ActiveCategoryManager(models.Manager):
+    """ Manager class to return only those categories where each instance is active """
+    def get_query_set(self):
+        return super(ActiveCategoryManager, self).get_query_set().filter(is_active=True)
 # Create your models here.
 class Category(models.Model):
     """ model class containing information about a category in the product catalog """
@@ -15,6 +20,8 @@ class Category(models.Model):
     created_at = models.DateTimeField(default=datetime.datetime.now)
     updated_at = models.DateTimeField(default=datetime.datetime.now)
     
+    objects = models.Manager()
+    active = ActiveCategoryManager()
 
     class Meta:
         db_table = 'categories'
@@ -28,6 +35,11 @@ class Category(models.Model):
     def get_absolute_url(self):
         return ('catalog_category', (), { 'category_slug': self.slug })
 
+class ActiveProductManager(models.Manager):
+    """ Manager class to return only those products where each instance is active """
+    def get_query_set(self):
+        return super(ActiveProductManager, self).get_query_set().filter(is_active=True)
+    
 class Product(models.Model):
     """ model class containing information about a product; instances of this class are what the user
     adds to their shopping cart and can subsequently purchase
@@ -58,7 +70,8 @@ class Product(models.Model):
     thumbnail = models.ImageField(upload_to='images/products/thumbnails')
     image_caption = models.CharField(max_length=200)
     
-    
+    objects = models.Manager()
+    active = ActiveProductManager()
     class Meta:
         db_table = 'products'
         ordering = ['-created_at']

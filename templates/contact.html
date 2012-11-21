@@ -1,5 +1,19 @@
+{% extends "base.html" %}
+	{% load catalog_tags %}
+	{% load search_tags %}
+	{% block shop_cart%}
 	
-{% extends "base.html" %}	
+			     <div class="span3" style="margin-right:-50px">
+			         {% cart_box request %}
+			     </div>
+			     {% search_box request%}
+				
+    {% endblock %}
+    
+    {% block account %}
+    {% include 'tags/navigation.html' %}
+    {% endblock %}
+    	
 	{% block GoogleMapJS%}
 	<!-- GoogleMaps -->
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>

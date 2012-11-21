@@ -24,6 +24,6 @@ urlpatterns = patterns('',
      (r'^accounts/',include('ecomstore.accounts.urls')),
      (r'^accounts/',include('django.contrib.auth.urls')),
      (r'^checkout/', include('ecomstore.checkout.urls')),
-     (r'^search/', include('search.urls')),
+     (r'^search/', include('ecomstore.search.urls')),
      (r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT}),
 )
